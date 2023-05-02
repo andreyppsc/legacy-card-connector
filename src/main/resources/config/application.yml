@@ -11,24 +11,24 @@ server:
 
 spring:
   application:
-    name: quickstart-connector # TODO 1. choose a meaningful name for your connector service
+    name: card management
   jackson:
     serialization:
       write_dates_as_timestamps: false
       fail-on-empty-beans: false
 
 application:
-  jaeger:  # TODO optional: decide whether you want to use jaeger tracing in your setup and choose a prefix name
+  jaeger:
     enabled: false
     prefix: connector
 
-management: # TODO optional: enable health check for all the services you use in case you add any
+management:
   health:
     kafka.enabled: true
-    # db.enabled: true
-    # mongo.enabled: true
-    # redis.enabled: true
-    # elasticsearch.enabled: true
+
+card-management-api:
+  baseUrl: https://dev-legacy-card.outmost.ro
+  endpoint: /cards
 
 spring.config.import: application-management.yml, application-kafka.yml
 ---
